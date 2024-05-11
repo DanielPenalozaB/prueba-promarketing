@@ -1,6 +1,4 @@
 import { ProviderInterface } from "@/interfaces";
-import { url } from "inspector";
-import React from "react";
 
 export default async function getProviders(): Promise<
 	ProviderInterface[] | string
@@ -16,6 +14,7 @@ export default async function getProviders(): Promise<
 	try {
 		const response = await fetch(PAYLOAD.url, PAYLOAD);
 		const data = await response.json();
+
 		return data;
 	} catch (error) {
 		return "Error fetching providers";
