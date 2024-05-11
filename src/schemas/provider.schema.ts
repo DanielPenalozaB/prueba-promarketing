@@ -3,7 +3,6 @@ import * as yup from "yup";
 const todayStartOfDay = new Date();
 todayStartOfDay.setHours(0, 0, 0, 0);
 
-
 export const providerSchema = yup.object({
     providers: yup.mixed()
         .required('La selección de al menos un proveedor es obligatoria')

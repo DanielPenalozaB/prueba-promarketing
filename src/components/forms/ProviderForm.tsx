@@ -7,6 +7,9 @@ import { ChangeEvent, useEffect, useState } from "react";
 import Checkbox from "../ui/Checkbox";
 import Radio from "../ui/Radio";
 import { providerSchema } from "@/schemas";
+import toast from "react-hot-toast";
+
+const TOAST_ID = "provider-form";
 
 export default function ProviderForm() {
 	const [availableProviders, setAvailableProviders] = useState<
@@ -17,10 +20,27 @@ export default function ProviderForm() {
 		const fetchProviders = async () => {
 			const data = await getProviders();
 
-			console.log(data);
-
 			if (Array.isArray(data)) {
 				setAvailableProviders(data);
+			} else {
+				toast(
+					(t) => (
+						<div className="flex gap-2">
+							<span>
+								Hubo un error al cargar los proveedores.
+							</span>
+							<button
+								type="button"
+								title="Cerrar"
+								className="rounded-lg bg-primary-200 px-2 py-1 text-primary-900"
+								onClick={() => toast.dismiss(t.id)}
+							>
+								Cerrar
+							</button>
+						</div>
+					),
+					{ id: TOAST_ID }
+				);
 			}
 		};
 
@@ -29,6 +49,12 @@ export default function ProviderForm() {
 
 	const onSubmit = (values: any) => {
 		console.log(values);
+
+		if (isValid) {
+			toast.success("Se envió correctamente el formulario");
+		} else {
+			toast.error("Hubo un error al enviar el formulario");
+		}
 
 		resetForm();
 	};
