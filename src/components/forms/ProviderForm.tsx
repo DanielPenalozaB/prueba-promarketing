@@ -8,6 +8,7 @@ import Checkbox from "../ui/Checkbox";
 import Radio from "../ui/Radio";
 import { providerSchema } from "@/schemas";
 import toast from "react-hot-toast";
+import { todayStartOfDay } from "@/constants";
 
 const TOAST_ID = "provider-form";
 
@@ -236,6 +237,9 @@ export default function ProviderForm() {
 								value={values.endDate}
 								onChange={handleChange}
 								onBlur={handleBlur}
+								min={
+									todayStartOfDay.toISOString().split("T")[0]
+								}
 							/>
 							{errors.endDate && touched.endDate && (
 								<p className="text-sm text-red-500">
