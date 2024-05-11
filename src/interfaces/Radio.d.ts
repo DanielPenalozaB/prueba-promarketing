@@ -1,12 +1,8 @@
-import { ChangeEvent } from "react";
+import { DetailedHTMLProps, InputHTMLAttributes } from "react";
 
-export interface RadioInterface {
-    disabled?: boolean;
-    checked?: boolean;
-    defaultValue?: "true" | "false"; // Use defaultValue instead of defaultChecked
-    onChange?: (value: ChangeEvent<HTMLInputElement>) => void;
-    name: string;
-    id: string;
+export interface RadioInterface extends DetailedHTMLProps<
+    InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+> {
     label: string;
-    className?: string;
 }

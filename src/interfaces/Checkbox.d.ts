@@ -1,12 +1,8 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes } from "react";
 
-export interface CheckboxInterface {
-    disabled?: boolean;
-    checked?: boolean;
-    defaultChecked?: boolean;
-    onChange?: (value: ChangeEvent<HTMLInputElement>) => void;
-    name?: string;
-    id: string;
+export interface CheckboxInterface extends DetailedHTMLProps<
+    InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+> {
     label: string;
-    className?: string;
 }
