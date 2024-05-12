@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
 				className={`${poppins.className} ${robotoCondensed.variable} flex justify-center p-5`}
 			>
 				{children}
+				<Toaster position="bottom-right" />
 			</body>
 		</html>
 	);
