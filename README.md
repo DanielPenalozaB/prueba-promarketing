@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Prueba Técnica Promarketing
 
-## Getting Started
+¡Hola equipo de reclutamiento de Promarketing!
 
-First, run the development server:
+Este es el repositorio que contiene la prueba técnica que me asignaron. En este proyecto, utilicé Next.js, TypeScript y TailwindCSS para crear los componentes solicitados.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Componentes a Crear
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Input
+2. Button
+3. Tabs
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Instrucciones
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clonen este repositorio.
+2. Instalen las dependencias con `npm install` o `yarn install`.
+3. Copien el archivo `.env.template` y créen uno nuevo llamado `.env.local`, luego completen las variables necesarias.
+4. Inicien el servidor de desarrollo con `npm run dev` o `yarn dev`.
+5. Desarrollen los componentes requeridos siguiendo las especificaciones del diseño en Figma.
 
-## Learn More
+¡Gracias por esta oportunidad!
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Atentamente,
+Juan Daniel Peñaloza.
