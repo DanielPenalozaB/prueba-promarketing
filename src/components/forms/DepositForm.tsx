@@ -9,6 +9,7 @@ import { postDeposit } from "@/services";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 
+// This interface defines the expected types for the form values.
 export interface FormValuesInterface {
 	dailyAmount: string | number;
 	weeklyAmount: string | number;
@@ -18,12 +19,14 @@ export interface FormValuesInterface {
 
 export default function DepositForm() {
 	const onSubmit = async (values: FormValuesInterface) => {
+		// Check if all values are numbers before converting them.
 		if (
 			!isNaN(Number(values.dailyAmount)) &&
 			!isNaN(Number(values.weeklyAmount)) &&
 			!isNaN(Number(values.monthlyAmount)) &&
 			!isNaN(Number(values.minimumAmount))
 		) {
+			// Convert string values to numbers before sending the data.
 			const response = await postDeposit({
 				dailyAmount: Number(values.dailyAmount),
 				weeklyAmount: Number(values.weeklyAmount),

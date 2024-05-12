@@ -20,6 +20,7 @@ export default function ProviderForm() {
 	>([]);
 
 	useEffect(() => {
+		// Fetch the list of available providers on component mount.
 		const fetchProviders = async () => {
 			const data = await getProviders();
 
@@ -51,7 +52,7 @@ export default function ProviderForm() {
 	}, []);
 
 	const onSubmit = (values: any) => {
-		console.log(values);
+		console.log(values); // For debugging purposes
 
 		if (isValid) {
 			toast.success("Se envió correctamente el formulario");
@@ -90,6 +91,7 @@ export default function ProviderForm() {
 		onSubmit,
 	});
 
+	// This function handles selecting/deselecting all checkboxes.
 	const handleSelectAllChange = (e: ChangeEvent<HTMLInputElement>) => {
 		e.currentTarget.blur();
 
@@ -102,6 +104,7 @@ export default function ProviderForm() {
 		}
 	};
 
+	// This function checks if a specific provider checkbox is selected.
 	const isCheckboxSelected = (id: string) => {
 		const PROVIDERS: string[] = values.providers;
 

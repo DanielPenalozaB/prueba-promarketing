@@ -1,22 +1,27 @@
 import { todayStartOfDay } from "@/constants";
 import * as yup from "yup";
 
+// This schema defines the validation rules for deposit form fields.
 export const depositSchema = yup.object({
     minimumAmount: yup.number()
         .required('El monto mínimo de depósito es obligatorio')
         .positive('El monto mínimo debe ser un valor positivo')
         .min(5000, 'El monto mínimo debe ser mayor o igual a $5.000')
+        // Enforces minimum digits to be 4 (e.g., 1000)
         .test({
             name: 'minimumAmount',
             message: 'El monto mínimo debe ser de mínimo 4 dígitos',
             test: (value) => value > 999
 
         })
+        // Enforces maximum value to be less than 9 digits (e.g., 999999999)
         .test({
             name: 'maximumAmount',
             message: 'El monto máximo debe ser de mínimo 9 dígitos',
             test: (value) => value < 1000000000
         }),
+    // These fields are optional but have conditional validations against each other
+    // to ensure a hierarchy (monthly > weekly > daily)
     monthlyAmount: yup.number()
         .optional()
         .test({
@@ -113,6 +118,7 @@ export const depositSchema = yup.object({
         // Add validation to exclude weekends (assuming Sunday=0, Saturday=6)
         .test('noWeekends', 'No se permiten sábados o domingos', (value) => {
             const day = new Date(value).getDay();
+            // Weekend days are Sunday (0) and Saturday (6)
             return day !== 0 && day !== 6;
         }),
     reason: yup.string()
