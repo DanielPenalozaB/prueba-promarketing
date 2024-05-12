@@ -6,6 +6,8 @@ import { useFormik } from "formik";
 import toast from "react-hot-toast";
 import CurrencyInput from "../ui/CurrencyInput";
 import { postDeposit } from "@/services";
+import Input from "../ui/Input";
+import Button from "../ui/Button";
 
 export interface FormValuesInterface {
 	dailyAmount: string | number;
@@ -116,7 +118,7 @@ export default function DepositForm() {
 							)}
 						</div>
 						<div className="flex w-full flex-col gap-1.5">
-							<input
+							<Input
 								type="number"
 								name="dailyAmount"
 								id="dailyAmount"
@@ -134,7 +136,7 @@ export default function DepositForm() {
 							)}
 						</div>
 						<div className="flex w-full flex-col gap-1.5">
-							<input
+							<Input
 								type="number"
 								name="weeklyAmount"
 								id="weeklyAmount"
@@ -152,7 +154,7 @@ export default function DepositForm() {
 							)}
 						</div>
 						<div className="flex w-full flex-col gap-1.5">
-							<input
+							<Input
 								type="number"
 								name="monthlyAmount"
 								id="monthlyAmount"
@@ -170,7 +172,7 @@ export default function DepositForm() {
 							)}
 						</div>
 						<div className="flex w-full flex-col gap-1.5">
-							<input
+							<Input
 								type="date"
 								name="startDate"
 								id="startDate"
@@ -208,16 +210,16 @@ export default function DepositForm() {
 					</div>
 				</div>
 			</div>
-			<button
+			<Button
 				type="button"
 				aria-label="Guardar"
 				title="Guardar"
 				className="w-[321px] self-center rounded-xl bg-[#E3A70C] px-8 py-2 font-roboto-condensed text-xl font-bold uppercase leading-[23px] text-primary-100 hover:bg-[#f6c119] disabled:bg-neutral-200"
 				onClick={() => submitForm()}
 				disabled={!isValid}
-			>
-				Guardar
-			</button>
+				label="Guardar"
+				color="accent"
+			/>
 		</form>
 	);
 }

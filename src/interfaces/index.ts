@@ -1,3 +1,4 @@
+export * from './Button.d';
 export * from './Checkbox.d';
 export * from './CurrencyInput.d';
 export * from './Deposit.d';

@@ -9,6 +9,8 @@ import Radio from "../ui/Radio";
 import { providerSchema } from "@/schemas";
 import toast from "react-hot-toast";
 import { todayStartOfDay } from "@/constants";
+import Button from "../ui/Button";
+import Input from "../ui/Input";
 
 const TOAST_ID = "provider-form";
 
@@ -228,7 +230,7 @@ export default function ProviderForm() {
 					</div>
 					{values.timePeriod === "temporary" && (
 						<>
-							<input
+							<Input
 								type="date"
 								name="endDate"
 								id="endDate"
@@ -271,16 +273,15 @@ export default function ProviderForm() {
 					</div>
 				</div>
 			</div>
-			<button
+			<Button
 				type="button"
 				aria-label="Enviar"
 				title="Enviar"
 				className="w-[321px] self-center rounded-xl bg-primary-900 px-8 py-3.5 font-roboto-condensed text-xl font-bold uppercase leading-[23px] text-primary-100 hover:bg-primary-600 disabled:bg-neutral-200"
 				onClick={() => submitForm()}
 				disabled={!isValid}
-			>
-				Enviar
-			</button>
+				label="Enviar"
+			/>
 		</form>
 	);
 }

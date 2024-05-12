@@ -1,7 +1,7 @@
 import { TabInterface } from "@/interfaces";
 import React from "react";
 
-export default function Button({ label, isSelected, onClick }: TabInterface) {
+export default function Tab({ label, isSelected, onClick }: TabInterface) {
 	return (
 		<button
 			type="button"
